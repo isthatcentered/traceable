@@ -1,41 +1,59 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build"
-  },
-  "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "traceable",
-  "author": "Edouard Penin",
-  "module": "dist/traceable.esm.js",
-  "devDependencies": {
-    "husky": "^4.2.5",
-    "tsdx": "^0.13.2",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
-  }
+	"name": "jest-traceable",
+	"author": "Edouard Penin",
+	"description": "",
+	"keywords": [
+		"tracer object",
+		"jest",
+		"delegation",
+		"calledWith",
+		"placeholder"
+	],
+	"version": "0.1.0",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"src"
+	],
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"start": "tsdx watch",
+		"build": "tsdx build",
+		"test": "tsdx test",
+		"lint": "tsdx lint",
+		"prepare": "tsdx build"
+	},
+	"peerDependencies": {},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"prettier": {
+		"arrowParens": "avoid",
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": false,
+		"jsxSingleQuote": false,
+		"trailingComma": "all",
+		"bracketSpacing": true,
+		"jsxBracketSameLine": false
+	},
+	"module": "dist/traceable.esm.js",
+	"devDependencies": {
+		"husky": "^4.2.5",
+		"prettier": "^2.0.5",
+		"pretty-quick": "^2.0.1",
+		"tsdx": "^0.13.2",
+		"tslib": "^2.0.0",
+		"typescript": "^3.9.5"
+	},
+	"dependencies": {
+		"@types/lodash.clonedeep": "^4.5.6",
+		"lodash.clonedeep": "^4.5.0"
+	}
 }
