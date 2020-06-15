@@ -1,8 +1,6 @@
 import traceable from "."
+import { WHATEVER } from "./test-helpers"
 
-const identity = <T>(value: T) => value
-
-const WHATEVER = identity
 describe(`${traceable.name}`, () => {
 	test(`Displays "tracer name" in test error`, () => {
 		const baseObject = { key: "value" }
