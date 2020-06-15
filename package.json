@@ -9,7 +9,9 @@
 		"calledWith",
 		"placeholder"
 	],
-	"version": "0.1.0",
+	"repository": "https://github.com/isthatcentered/traceable",
+	"bugs": "https://github.com/isthatcentered/traceable/issues",
+	"version": "0.2.0",
 	"license": "MIT",
 	"main": "dist/index.js",
 	"typings": "dist/index.d.ts",
