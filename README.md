@@ -1,27 +1,34 @@
-# TSDX Bootstrap
+# Traceable
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+Object tagging for your tests
 
-## Local Development
+## Before
 
-Below is a list of commands you will probably find useful.
+![Before](.README_images/before.png)
 
-### `npm start` or `yarn start`
+## After
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+![After](.README_images/after.png)
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+### How to use
 
-Your library will be rebuilt if you make edits.
+```typescript
+import traceable from "jest-traceable"
 
-### `npm run build` or `yarn build`
+test(`Displays turn winner`, () => {
+	// Tag objects
+	const winner = traceable(makeWinner(), "winner")
+	const looser = traceable(makeLooser(), "looser")
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+	// Some code
+	const ui = { notifyWinner: jest.fn() }
+	const game = new Game(ui)
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+	game.turn(winner, looser)
 
-### `npm test` or `yarn test`
+	// Verify object passing
+	expect(ui.notifyWinner).toHaveBeenCalledWith(winner)
+})
+```
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+[Full example](./src/demo.spec.ts)
