@@ -2,9 +2,9 @@ import cloneDeep from "lodash.clonedeep"
 
 const always = <T>(value: T) => () => value
 
-function traceable<T extends object>(obj: T, description: string): T
-function traceable<T extends object>(description: string): T
-function traceable<T extends object>(
+function traceable<T>(obj: T, description: string): T
+function traceable<T>(description: string): T
+function traceable<T>(
 	objectOrDescription: T | string,
 	description?: string,
 ): T {
